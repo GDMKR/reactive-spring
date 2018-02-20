@@ -58,6 +58,11 @@ public class PostController {
                 .defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/posts/user/{username}")
+    public Flux<Post>  getAllPostsByUsername(@PathVariable(value = "username") String username) {
+        return postRepository.findByUsername(username);
+    }
+
     // posts are Sent to the client as Server Sent Events
     @GetMapping(value = "/stream/posts", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Post> streamAllposts() {

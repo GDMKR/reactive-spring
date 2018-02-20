@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,6 +18,9 @@ public class Post {
     @Size(max = 140)
     private String text;
 
+    @CreatedBy
+    private String username;
+
     @NotNull
     private LocalDate createdAt = LocalDate.now();
 
@@ -24,9 +28,19 @@ public class Post {
 
     }
 
-    public Post(String text) {
+    public Post(String id, @NotBlank @Size(max = 140) String text, String username, @NotNull LocalDate createdAt) {
         this.id = id;
         this.text = text;
+        this.username = username;
+        this.createdAt = createdAt;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getId() {
