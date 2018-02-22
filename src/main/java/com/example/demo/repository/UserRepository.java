@@ -8,6 +8,6 @@ import reactor.core.publisher.Mono;
 /**
  * Created by Yurii on 2/22/2018.
  */
-public interface UserRepository extends ReactiveMongoRepository<Post, String> {
+public interface UserRepository extends ReactiveMongoRepository<User, String> {
     Mono<User> findByUsername(String username);
 }
