@@ -26,7 +26,7 @@ public class DemoApplicationTests {
 
 	@Test
 	public void testCreatePost() {
-		Post post = new Post("This is a Test Post");
+		Post post = new Post("This is a Test Post",);
 
 		webTestClient.post().uri("/posts")
 				.contentType(MediaType.APPLICATION_JSON_UTF8)

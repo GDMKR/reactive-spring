@@ -28,11 +28,9 @@ public class Post {
 
     }
 
-    public Post(String id, @NotBlank @Size(max = 140) String text, String username, @NotNull LocalDate createdAt) {
-        this.id = id;
+    public Post( @NotBlank @Size(max = 140) String text, String username) {
         this.text = text;
         this.username = username;
-        this.createdAt = createdAt;
     }
 
     public String getUsername() {
